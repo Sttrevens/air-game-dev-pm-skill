@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Air Game Dev PM Heatmap</title>
+<style>
+  :root { font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #172033; background: #f6f7f9; }
+  body { margin: 0; }
+  header { padding: 28px 32px 18px; background: #111827; color: white; }
+  h1 { margin: 0 0 8px; font-size: 28px; letter-spacing: 0; }
+  h2 { margin: 0 0 8px; font-size: 16px; letter-spacing: 0; }
+  p { margin: 0; color: #d1d5db; }
+  main { padding: 24px 32px 40px; }
+  .stats { display: grid; grid-template-columns: repeat(4, minmax(130px, 1fr)); gap: 12px; margin: 18px 0 0; }
+  .stat { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.14); border-radius: 8px; padding: 12px; }
+  .stat b { display: block; font-size: 24px; margin-bottom: 3px; }
+  .stat span { color: #cbd5e1; font-size: 13px; }
+  .legend { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 18px; color: #475569; }
+  .legend span { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; }
+  .legend i { width: 14px; height: 14px; border-radius: 3px; display: inline-block; }
+  .mainstay-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-bottom: 22px; }
+  .mainstay-card { background: white; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px; box-shadow: 0 1px 2px rgba(15,23,42,.04); }
+  .mainstay-card p { color: #64748b; font-size: 13px; }
+  .bar { height: 8px; background: #eef2f7; border-radius: 999px; overflow: hidden; margin-top: 12px; }
+  .bar span { display: block; height: 100%; background: linear-gradient(90deg, #f97316, #facc15, #38bdf8, #2563eb); }
+  .table-wrap { overflow: auto; background: white; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 1px 2px rgba(15,23,42,.04); }
+  table { border-collapse: collapse; width: 100%; min-width: 980px; }
+  th, td { border-bottom: 1px solid #edf0f4; padding: 10px 10px; text-align: left; font-size: 13px; vertical-align: middle; }
+  thead th { position: sticky; top: 0; background: #f8fafc; z-index: 1; color: #475569; font-weight: 700; }
+  .group-row th { background: #e5e7eb; color: #111827; font-size: 14px; }
+  .id { font-weight: 700; color: #111827; white-space: nowrap; }
+  .feature { min-width: 210px; }
+  .status { color: white; font-size: 12px; padding: 3px 7px; border-radius: 999px; white-space: nowrap; }
+  .level-cell { width: 64px; text-align: center; padding: 6px; }
+  .level-cell span { display: block; height: 30px; line-height: 30px; border-radius: 6px; color: #0f172a; font-weight: 700; }
+  .level-cell.target span { outline: 2px solid #111827; outline-offset: 2px; }
+  .evidence { max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  a { color: #2563eb; text-decoration: none; }
+  @media (max-width: 760px) { header, main { padding-left: 16px; padding-right: 16px; } .stats { grid-template-columns: repeat(2, minmax(120px, 1fr)); } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Air Game Dev PM Heatmap</h1>
+  <p>Air Game Dev PM heatmap · generated 2026-05-29 18:58</p>
+  <div class="stats">
+    <div class="stat"><b>8</b><span>features</span></div>
+    <div class="stat"><b>56%</b><span>overall maturity</span></div>
+    <div class="stat"><b>0</b><span>L4 polished</span></div>
+    <div class="stat"><b>1</b><span>blocked</span></div>
+  </div>
+</header>
+<main>
+  <div class="legend"><span><i style='background:#f97316'></i>L1: Concept</span><span><i style='background:#facc15'></i>L2: Prototype</span><span><i style='background:#38bdf8'></i>L3: Implementation</span><span><i style='background:#2563eb'></i>L4: Polish</span></div>
+  <section class="mainstay-grid">
+            <section class="mainstay-card">
+              <div>
+                <h2>M-A Filming Core</h2>
+                <p>2 features · 62% maturity · 0 blocked</p>
+              </div>
+              <div class="bar"><span style="width:62%"></span></div>
+            </section>
+            
+            <section class="mainstay-card">
+              <div>
+                <h2>M-B Streaming Room</h2>
+                <p>2 features · 62% maturity · 0 blocked</p>
+              </div>
+              <div class="bar"><span style="width:62%"></span></div>
+            </section>
+            
+            <section class="mainstay-card">
+              <div>
+                <h2>M-C Level Progression</h2>
+                <p>1 features · 50% maturity · 0 blocked</p>
+              </div>
+              <div class="bar"><span style="width:50%"></span></div>
+            </section>
+            
+            <section class="mainstay-card">
+              <div>
+                <h2>M-Tech Tech Capability</h2>
+                <p>3 features · 50% maturity · 1 blocked</p>
+              </div>
+              <div class="bar"><span style="width:50%"></span></div>
+            </section>
+            </section>
+  <section class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Feature ID</th><th>Feature</th><th>Type</th><th>Owner</th><th>Iter</th><th>Status</th>
+          <th>L1</th><th>L2</th><th>L3</th><th>L4</th><th>Evidence</th>
+        </tr>
+      </thead>
+      <tbody><tr class='group-row'><th colspan='10'>M-A Filming Core</th></tr>
+                <tr>
+                  <td class="id">F-A1</td>
+                  <td class="feature">Wieldable camera aiming</td>
+                  <td>F</td>
+                  <td>Design</td>
+                  <td>Iter 4</td>
+                  <td><span class="status" style="background:#8b5cf6">in progress</span></td>
+                  <td class='level-cell' title='L1 Concept'><span style='background:#f97316'>L1</span></td><td class='level-cell' title='L2 Prototype'><span style='background:#facc15'>L2</span></td><td class='level-cell' title='L3 Implementation'><span style='background:#38bdf8'>L3</span></td><td class='level-cell target' title='L4 Polish'><span style='background:#eef2f7'></span></td>
+                  <td class="evidence"></td>
+                </tr>
+                
+                <tr>
+                  <td class="id">F-A2</td>
+                  <td class="feature">Shot feedback and coaching</td>
+                  <td>F</td>
+                  <td>Design</td>
+                  <td>Iter 4</td>
+                  <td><span class="status" style="background:#8b5cf6">in progress</span></td>
+                  <td class='level-cell' title='L1 Concept'><span style='background:#f97316'>L1</span></td><td class='level-cell' title='L2 Prototype'><span style='background:#facc15'>L2</span></td><td class='level-cell target' title='L3 Implementation'><span style='background:#eef2f7'></span></td><td class='level-cell' title='L4 Polish'><span style='background:#eef2f7'></span></td>
+                  <td class="evidence"></td>
+                </tr>
+                <tr class='group-row'><th colspan='10'>M-B Streaming Room</th></tr>
+                <tr>
+                  <td class="id">F-B1</td>
+                  <td class="feature">Audience barrage loop</td>
+                  <td>F</td>
+                  <td>Systems</td>
+                  <td>Iter 4</td>
+                  <td><span class="status" style="background:#8b5cf6">in progress</span></td>
+                  <td class='level-cell' title='L1 Concept'><span style='background:#f97316'>L1</span></td><td class='level-cell' title='L2 Prototype'><span style='background:#facc15'>L2</span></td><td class='level-cell' title='L3 Implementation'><span style='background:#38bdf8'>L3</span></td><td class='level-cell target' title='L4 Polish'><span style='background:#eef2f7'></span></td>
+                  <td class="evidence"></td>
+                </tr>
+                
+                <tr>
+                  <td class="id">F-B2</td>
+                  <td class="feature">Gift and stamina return</td>
+                  <td>F</td>
+                  <td>Systems</td>
+                  <td>Iter 4</td>
+                  <td><span class="status" style="background:#9ca3af">todo</span></td>
+                  <td class='level-cell' title='L1 Concept'><span style='background:#f97316'>L1</span></td><td class='level-cell' title='L2 Prototype'><span style='background:#facc15'>L2</span></td><td class='level-cell target' title='L3 Implementation'><span style='background:#eef2f7'></span></td><td class='level-cell' title='L4 Polish'><span style='background:#eef2f7'></span></td>
+                  <td class="evidence"></td>
+                </tr>
+                <tr class='group-row'><th colspan='10'>M-C Level Progression</th></tr>
+                <tr>
+                  <td class="id">F-C1</td>
+                  <td class="feature">Roguelite route structure</td>
+                  <td>F</td>
+                  <td>Level Design</td>
+                  <td>Iter 4</td>
+                  <td><span class="status" style="background:#8b5cf6">in progress</span></td>
+                  <td class='level-cell' title='L1 Concept'><span style='background:#f97316'>L1</span></td><td class='level-cell' title='L2 Prototype'><span style='background:#facc15'>L2</span></td><td class='level-cell target' title='L3 Implementation'><span style='background:#eef2f7'></span></td><td class='level-cell' title='L4 Polish'><span style='background:#eef2f7'></span></td>
+                  <td class="evidence"></td>
+                </tr>
+                <tr class='group-row'><th colspan='10'>M-Tech Tech Capability</th></tr>
+                <tr>
+                  <td class="id">C-ECON-1</td>
+                  <td class="feature">Session economy simulation</td>
+                  <td>C</td>
+                  <td>Systems</td>
+                  <td>Iter 4</td>
+                  <td><span class="status" style="background:#9ca3af">todo</span></td>
+                  <td class='level-cell' title='L1 Concept'><span style='background:#f97316'>L1</span></td><td class='level-cell' title='L2 Prototype'><span style='background:#eef2f7'></span></td><td class='level-cell target' title='L3 Implementation'><span style='background:#eef2f7'></span></td><td class='level-cell' title='L4 Polish'><span style='background:#eef2f7'></span></td>
+                  <td class="evidence"></td>
+                </tr>
+                
+                <tr>
+                  <td class="id">C-NET-1</td>
+                  <td class="feature">Peer ownership and authority</td>
+                  <td>C</td>
+                  <td>Engineering</td>
+                  <td>Iter 4</td>
+                  <td><span class="status" style="background:#ef4444">blocked</span></td>
+                  <td class='level-cell' title='L1 Concept'><span style='background:#f97316'>L1</span></td><td class='level-cell' title='L2 Prototype'><span style='background:#facc15'>L2</span></td><td class='level-cell' title='L3 Implementation'><span style='background:#eef2f7'></span></td><td class='level-cell target' title='L4 Polish'><span style='background:#eef2f7'></span></td>
+                  <td class="evidence"></td>
+                </tr>
+                
+                <tr>
+                  <td class="id">C-UI-1</td>
+                  <td class="feature">Player-scoped HUD binding</td>
+                  <td>C</td>
+                  <td>UI Engineering</td>
+                  <td>Iter 4</td>
+                  <td><span class="status" style="background:#8b5cf6">in progress</span></td>
+                  <td class='level-cell' title='L1 Concept'><span style='background:#f97316'>L1</span></td><td class='level-cell' title='L2 Prototype'><span style='background:#facc15'>L2</span></td><td class='level-cell' title='L3 Implementation'><span style='background:#38bdf8'>L3</span></td><td class='level-cell target' title='L4 Polish'><span style='background:#eef2f7'></span></td>
+                  <td class="evidence"></td>
+                </tr>
+                </tbody>
+    </table>
+  </section>
+</main>
+</body>
+</html>

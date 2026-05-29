@@ -1,0 +1,9 @@
+mainstay_id,mainstay_name,feature_id,feature_name,type,depends_on,current_level,target_level,owner,iter,status,evidence
+M-A,Filming Core,F-A1,Wieldable camera aiming,F,,L3,L4,Design,Iter 4,in progress,
+M-A,Filming Core,F-A2,Shot feedback and coaching,F,C-UI-1,L2,L3,Design,Iter 4,in progress,
+M-B,Streaming Room,F-B1,Audience barrage loop,F,C-NET-1,L3,L4,Systems,Iter 4,in progress,
+M-B,Streaming Room,F-B2,Gift and stamina return,F,C-ECON-1,L2,L3,Systems,Iter 4,todo,
+M-C,Level Progression,F-C1,Roguelite route structure,F,C-NET-1,L2,L3,Level Design,Iter 4,in progress,
+M-Tech,Tech Capability,C-NET-1,Peer ownership and authority,C,,L2,L4,Engineering,Iter 4,blocked,
+M-Tech,Tech Capability,C-UI-1,Player-scoped HUD binding,C,C-NET-1,L3,L4,UI Engineering,Iter 4,in progress,
+M-Tech,Tech Capability,C-ECON-1,Session economy simulation,C,,L1,L3,Systems,Iter 4,todo,

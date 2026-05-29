@@ -1,0 +1,7 @@
+interface:
+  display_name: "Air Game Dev PM"
+  short_description: "Air 的游戏开发 PM 拆解与迭代方法"
+  default_prompt: "Use $air-game-dev-pm to structure this game milestone into Experience, Mainstay, Feature, Level, Task, and Iter planning."
+
+policy:
+  allow_implicit_invocation: true
