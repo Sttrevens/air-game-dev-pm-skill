@@ -1,8 +1,8 @@
-# Air Game Dev PM Skill
+# Air Game Dev PM
 
 Air's game-development project management method for turning a game vision into trackable Experience, Mainstay, Feature, Level, Task, and Iter planning.
 
-This repository packages the method as a Codex skill plus a small standalone heatmap renderer.
+This repository packages the method as a portable `SKILL.md` Agent Skill plus a small standalone heatmap renderer. It is written to work in Claude Code, Codex, and other agents that support `SKILL.md`-style skill folders.
 
 ## What This Skill Helps With
 
@@ -23,16 +23,45 @@ This repository packages the method as a Codex skill plus a small standalone hea
 | Task | Directly executable work item. |
 | Iter | A playable or inspectable stepping stone with a rollback condition. |
 
-## Install As A Codex Skill
+## Use With Claude Code
+
+Claude Code skills live in `~/.claude/skills/<skill-name>/SKILL.md` for personal skills, or `.claude/skills/<skill-name>/SKILL.md` for project-local skills. The directory name becomes the slash command, so install this repo as `air-game-dev-pm` if you want to invoke it as `/air-game-dev-pm`.
+
+Personal install:
+
+```bash
+git clone https://github.com/Sttrevens/air-game-dev-pm-skill.git ~/.claude/skills/air-game-dev-pm
+```
+
+Project install:
+
+```bash
+mkdir -p .claude/skills
+git clone https://github.com/Sttrevens/air-game-dev-pm-skill.git .claude/skills/air-game-dev-pm
+```
+
+Then in Claude Code:
+
+```text
+/air-game-dev-pm
+```
+
+Or ask naturally, for example: "Use Air PM to break this game feature into Mainstays, Features, Tasks, and an Iter plan."
+
+## Use With Codex
 
 Copy this folder into your Codex skills directory:
 
 ```bash
 mkdir -p ~/.codex/skills
-cp -R air-game-dev-pm-skill ~/.codex/skills/air-game-dev-pm
+git clone https://github.com/Sttrevens/air-game-dev-pm-skill.git ~/.codex/skills/air-game-dev-pm
 ```
 
 Then ask Codex to use `$air-game-dev-pm`.
+
+## Use Without A Skill Runtime
+
+You can also use the method as a plain prompt/reference. Open `SKILL.md`, paste the relevant section into any AI tool, and ask it to structure your game plan with the Experience → Mainstay → Feature → Level → Task → Iter layers.
 
 ## Generate A Heatmap
 
@@ -46,10 +75,11 @@ Open the generated HTML in a browser. The renderer has no third-party Python dep
 
 ## Files
 
-- `SKILL.md`: the Codex skill instructions.
-- `agents/openai.yaml`: skill metadata for agent interfaces.
+- `SKILL.md`: portable Agent Skill instructions.
+- `agents/openai.yaml`: optional UI metadata for OpenAI/Codex-style agent interfaces.
 - `scripts/render_heatmap.py`: standalone CSV/JSON to HTML heatmap renderer.
 - `examples/sample_features.csv`: sanitized sample data.
+- `examples/sample_heatmap.html`: rendered example output.
 
 ## Note
 

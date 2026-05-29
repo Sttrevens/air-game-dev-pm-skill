@@ -1,11 +1,13 @@
 ---
 name: air-game-dev-pm
-description: Air's game-development project management method for structuring game ideas, milestones, sprint plans, feature roadmaps, production audits, and team task breakdowns. Use when Codex needs to turn a game vision or feature into Experience, Mainstay, Feature, Level, Task, and Iter planning; assess PM assumptions; create PM tables/heatmaps; decide MVP/prototype scope; or keep a game project iterating with lowest-cost validation and rollback.
+description: Game-development PM method for turning game vision into Experience, Mainstays, Features, Levels, Tasks, Iters, heatmaps, MVP scope, and validation plans.
 ---
 
 # Air Game Development PM
 
 Use Air's PM method to plan game development from the farthest clearly foreseeable player experience back into trackable work. The method is especially useful for indie or small hybrid teams where design, tech, art, and production decisions must stay visible and reversible.
+
+This skill follows the common `SKILL.md` Agent Skills layout and can be used by Claude Code, Codex, and other agents that read skill directories.
 
 ## Core Principles
 
@@ -228,11 +230,11 @@ Field rules:
 
 ### Generate A Standalone HTML Heatmap
 
-Use the bundled script when a user asks for a visible global progress heatmap:
+Use the bundled script when a user asks for a visible global progress heatmap. Resolve the skill directory from the current agent runtime when possible. In Claude Code, prefer `${CLAUDE_SKILL_DIR}`. In Codex, use the installed skill path or the repository checkout path.
 
 ```bash
-python3 ~/.codex/skills/air-game-dev-pm/scripts/render_heatmap.py \
-  ~/.codex/skills/air-game-dev-pm/examples/camdown_features.csv \
+python3 ${CLAUDE_SKILL_DIR:-.}/scripts/render_heatmap.py \
+  ${CLAUDE_SKILL_DIR:-.}/examples/sample_features.csv \
   --title "CAM DOWN! Global PM Heatmap" \
   --output /tmp/camdown_pm_heatmap.html
 ```
