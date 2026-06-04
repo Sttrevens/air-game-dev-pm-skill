@@ -228,7 +228,7 @@ Field rules:
 - `status`: `todo`, `in progress`, `done`, `blocked` or Chinese equivalents.
 - `evidence`: link to concept docs, builds, QA notes, videos, PRDs, or playable proof.
 
-### Generate A Standalone HTML Heatmap
+### Generate A Standalone 2D HTML Heatmap
 
 Use the bundled script when a user asks for a visible global progress heatmap. Resolve the skill directory from the current agent runtime when possible. In Claude Code, prefer `${CLAUDE_SKILL_DIR}`. In Codex, use the installed skill path or the repository checkout path.
 
@@ -241,12 +241,25 @@ python3 ${CLAUDE_SKILL_DIR:-.}/scripts/render_heatmap.py \
 
 The script accepts CSV or JSON and outputs a single HTML file that can be opened locally or uploaded to Feishu/Miaoda. It intentionally has no external dependencies.
 
+### Generate A Self-Contained 3D Cubic Map
+
+Use the cubic renderer when the user wants an interactive pillar/cube view that can be shared as one file without running a local terminal server.
+
+```bash
+python3 ${CLAUDE_SKILL_DIR:-.}/scripts/render_cubic_map.py \
+  ${CLAUDE_SKILL_DIR:-.}/examples/sample_features.csv \
+  --title "CAM DOWN! Air PM Cubic Map" \
+  --output /tmp/camdown_pm_cubic_map.html
+```
+
+The cubic renderer accepts the same CSV feature rows as `render_heatmap.py`. It also accepts nested JSON in the form `{"mainstays":[...]}` with `features` and optional `tasks`. The generated HTML embeds its JavaScript runtime, data, CSS, and app code, so the file can be opened directly from disk with no server after generation.
+
 For "real-time" team usage, use Feishu Base/Sheet as the source of truth:
 
 1. Keep one Feature table using the canonical fields above.
-2. Ask Codex/lark-cli to read/export the latest table rows.
+2. Use the team's preferred automation, spreadsheet export, or task API to export the latest table rows.
 3. Save them as CSV/JSON.
-4. Run `scripts/render_heatmap.py`.
+4. Run `scripts/render_heatmap.py` for a 2D map or `scripts/render_cubic_map.py` for a self-contained 3D cubic map.
 5. Share the HTML or deploy it through the team's preferred static host.
 
 Do not treat the heatmap as a replacement for PM judgment. Use it to reveal imbalance, missing owners, blocked capability dependencies, and premature polish.

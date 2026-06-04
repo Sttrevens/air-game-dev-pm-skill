@@ -10,7 +10,7 @@ This repository packages the method as a portable `SKILL.md` Agent Skill plus a 
 - Split a game into Mainstays, Features, executable Tasks, and Iter milestones.
 - Use `L1` to `L4` as validation and maturity levels, not vague percent-complete theater.
 - Keep development balanced across pillars so one area does not sprint to polish while neighboring foundations are still unknown.
-- Generate a lightweight PM heatmap from CSV or JSON.
+- Generate lightweight 2D and self-contained 3D PM heatmaps from CSV or JSON.
 
 ## Core Vocabulary
 
@@ -63,7 +63,7 @@ Then ask Codex to use `$air-game-dev-pm`.
 
 You can also use the method as a plain prompt/reference. Open `SKILL.md`, paste the relevant section into any AI tool, and ask it to structure your game plan with the Experience → Mainstay → Feature → Level → Task → Iter layers.
 
-## Generate A Heatmap
+## Generate A 2D Heatmap
 
 ```bash
 python3 scripts/render_heatmap.py examples/sample_features.csv \
@@ -73,13 +73,26 @@ python3 scripts/render_heatmap.py examples/sample_features.csv \
 
 Open the generated HTML in a browser. The renderer has no third-party Python dependencies.
 
+## Generate A Self-Contained 3D Cubic Map
+
+```bash
+python3 scripts/render_cubic_map.py examples/sample_features.csv \
+  --title "Air Game Dev PM Cubic Map" \
+  --output /tmp/air_pm_cubic_map.html
+```
+
+The cubic map output embeds Three.js, OrbitControls, data, CSS, and app code into one HTML file. You can double-click the generated file or open it with a browser directly from disk; no terminal server is required after generation.
+
 ## Files
 
 - `SKILL.md`: portable Agent Skill instructions.
 - `agents/openai.yaml`: optional UI metadata for OpenAI/Codex-style agent interfaces.
-- `scripts/render_heatmap.py`: standalone CSV/JSON to HTML heatmap renderer.
+- `scripts/render_heatmap.py`: standalone CSV/JSON to 2D HTML heatmap renderer.
+- `scripts/render_cubic_map.py`: self-contained CSV/JSON to 3D cubic map renderer.
+- `vendor/`: vendored Three.js runtime used only to embed the cubic map output.
 - `examples/sample_features.csv`: sanitized sample data.
 - `examples/sample_heatmap.html`: rendered example output.
+- `examples/sample_cubic_map.html`: rendered self-contained 3D example output.
 
 ## Note
 
