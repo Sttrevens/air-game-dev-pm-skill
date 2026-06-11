@@ -209,6 +209,13 @@ Represent progress as a matrix:
 
 Look for uneven color fields. A small cool island surrounded by warm unknowns usually means premature production depth. A healthy project gradually cools across the map while preserving a whole playable shape.
 
+For the 3D cubic map renderer:
+
+- Treat vertical height as `L1` to `L4` evidence, not a raw task-count stack.
+- Use `target_level` to expose the next visible stone; target gaps should stay visible in reviews.
+- Treat `blocked` as a risk state even when the Feature is already at `L2` or above.
+- Use task rows as drilldown evidence when available; do not let tasks replace the Level view.
+
 ### Standard Heatmap Data
 
 Use this canonical Feature data shape when creating a live project board, Feishu Sheet/Base, CSV, or JSON:

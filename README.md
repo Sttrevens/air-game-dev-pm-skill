@@ -4,6 +4,27 @@ Air's game-development project management method for turning a game vision into 
 
 This repository packages the method as a portable `SKILL.md` Agent Skill plus a small standalone heatmap renderer. It is written to work in Claude Code, Codex, and other agents that support `SKILL.md`-style skill folders.
 
+## 10-Second Proof
+
+Give the skill a game idea, prototype plan, or feature list. It turns it into
+an Experience-first production map:
+
+```text
+Experience -> Mainstays -> Features / Capabilities -> L1-L4 validation levels
+           -> executable Tasks -> playable or inspectable Iter stones
+```
+
+The visible artifact is the self-contained 3D cubic map: draggable Mainstay
+pillars, Feature-level L1-L4 evidence bands, target-level wireframes, and a Gap
+view for blocked or lopsided work.
+
+## Why Install It
+
+AI-native game development creates too many plausible ideas too quickly. This
+skill keeps the project honest: what player experience is being proven, which
+pillars support it, which Features are still only L1/L2 evidence, and where the
+next low-cost playable stone is.
+
 ## What This Skill Helps With
 
 - Start from the farthest clearly foreseeable player experience instead of a feature pile.
@@ -11,6 +32,16 @@ This repository packages the method as a portable `SKILL.md` Agent Skill plus a 
 - Use `L1` to `L4` as validation and maturity levels, not vague percent-complete theater.
 - Keep development balanced across pillars so one area does not sprint to polish while neighboring foundations are still unknown.
 - Generate lightweight 2D and self-contained 3D PM heatmaps from CSV or JSON.
+
+## Minimum Run
+
+```text
+Use air-game-dev-pm to structure this game idea:
+[one paragraph game/prototype idea]
+
+Focus on the next playable stone and produce the Feature table with current and
+target L-levels.
+```
 
 ## Core Vocabulary
 
@@ -82,6 +113,13 @@ python3 scripts/render_cubic_map.py examples/sample_features.csv \
 ```
 
 The cubic map output embeds Three.js, OrbitControls, data, CSS, and app code into one HTML file. You can double-click the generated file or open it with a browser directly from disk; no terminal server is required after generation.
+
+In CSV mode, the cubic map treats height as level evidence, not task count theater:
+
+- Feature pillars are split into fixed `L1` to `L4` bands.
+- Blue wireframes mark each Feature's `target_level`.
+- `blocked` Features are visually risk-weighted and sorted upward in the Gap view.
+- If JSON input includes `tasks`, task completion is shown as drilldown beads without replacing the level bands.
 
 ## Files
 
